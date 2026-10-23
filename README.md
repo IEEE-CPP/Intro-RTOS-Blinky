@@ -11,8 +11,12 @@ wsl --install -d Ubuntu
 - In Windows Powershell as Administrator, run the following commands to use your USB in WSL
 
 ```powershell
-winget install usbipd
+<# Restart Shell after installation #>
+winget install usbipd 
+
+<# Continue in Powershell #>
 usbipd list
+usbipd bind --busid <BUSID>
 usbipd attach --auto-attach --busid <BUSID> --wsl
 ```
 

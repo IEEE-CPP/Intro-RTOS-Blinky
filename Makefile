@@ -12,7 +12,7 @@ clean:
 build:
 	cmake -S . -B build -G Ninja -DBOARD=$(BOARD) -DPython3_EXECUTABLE="$(PYTHON)" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build build
 
-prog: build
+prog: 
 	@test -f "$(HEX)" || { echo "Build not found: $(HEX)" >&2; exit 1; }
 	STM32_Programmer_CLI -c port=SWD mode=UR -w "$(HEX)" -v -rst
 
